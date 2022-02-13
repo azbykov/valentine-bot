@@ -33,7 +33,7 @@ module.exports = (bot, msg) => {
 		return bot.sendMessage(fromUser, 'Первым словом должен идти телеграмм-логин пользователя, начинающийся с @');
 	}
 
-	if (!textMsg) {
+	if (!textMsg && !photo) {
 		return bot.sendMessage(fromUser, 'Валентинка не может быть пустой');
 	}
 
@@ -54,7 +54,7 @@ module.exports = (bot, msg) => {
 
 		db.saveMsg({forUser, textMsg, fromUser, photoId, fileId});
 
-		return bot.sendMessage(fromUser, 'Этот пользователь еще не активировал бота и поэтому сообщение ему не может быть доставлено. Намекните ему что его что-то ожидает t.me/ya_valentin_bot. Как только он подключится - ваша валентинка будет ему доставлена');
+		return bot.sendMessage(fromUser, 'Этот пользователь еще не активировал бота и поэтому сообщение ему не может быть доставлено. Намекните ему что его что-то ожидает t.me/v. Как только он подключится - ваша валентинка будет ему доставлена');
 	}
 };
 
